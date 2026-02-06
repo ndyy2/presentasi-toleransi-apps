@@ -5,8 +5,16 @@ import type { SlideContent } from '../../data/content';
 export const GridCardSection = ({ data }: { data: SlideContent }) => {
     return (
         <div className="min-h-screen w-full flex items-center justify-center bg-emerald-950 text-white relative overflow-hidden py-24">
+            {/* Background Image if available */}
+            {data.image && (
+                <div className="absolute inset-0 z-0 opacity-20">
+                    <div className="absolute inset-0 bg-emerald-950/90 mix-blend-multiply z-10" />
+                    <img src={data.image} alt="Background" className="w-full h-full object-cover grayscale" />
+                </div>
+            )}
+
             {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
+            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-16">

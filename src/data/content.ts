@@ -15,7 +15,9 @@ export type SlideType =
   | 'closing'
   | 'image-overlay'
   | 'team-members'
-  | 'download';
+  | 'download'
+  | 'definition'
+  | 'story';
 
 export interface SlideContent {
   id: string;
@@ -26,7 +28,15 @@ export interface SlideContent {
   content?: string;
   theme?: 'calm' | 'serious' | 'energetic';
   image?: string;
-  items?: { title: string; desc: string; icon?: any }[]; // Grid/Split items
+  footerText?: string;
+  items?: Array<{
+    title: string;
+    desc: string;
+    icon?: string;
+    wisdom?: string;
+    metaTitle?: string;
+    metaDesc?: string;
+  }>;
   bullets?: { text: string; icon?: any }[] | string[];
   verse?: { text: string; translation: string; source: string };
   interactionHint?: string;
@@ -40,8 +50,8 @@ export const slides: SlideContent[] = [
     section: 'BAB 6',
     title: 'TOLERANSI',
     subtitle: 'Membina Kedamaian & Harmoni',
-    content: 'Kajian Pendidikan Agama Islam - Bab 6',
-    interactionHint: 'Scroll untuk memulai pembelajaran',
+    content: 'Pendidikan Agama Islam - Bab 6',
+    interactionHint: 'Scroll untuk memulai membaca',
     theme: 'calm'
   },
 
@@ -141,6 +151,7 @@ export const slides: SlideContent[] = [
     section: 'TAFSIR',
     title: 'Penjelasan Ulama',
     subtitle: 'Makna Q.S. Yunus: 40-41 menurut Mufassir',
+    image: 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=2000&auto=format&fit=crop', // Books/Light context
     items: [
       {
         title: 'Jalalain',
@@ -163,49 +174,54 @@ export const slides: SlideContent[] = [
   // --- DEFINISI (DIAGRAM) ---
   {
     id: '5-definition',
-    type: 'diagram',
+    type: 'definition',
     section: 'PENGERTIAN',
     title: 'Makna Toleransi',
-    subtitle: 'Dari Bahasa & Istilah',
+    subtitle: 'Menelusuri Akar Kata & Esensi Perilaku',
+    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2000&auto=format&fit=crop', // Hands/Teamwork/Togetherness
     items: [
       {
+        title: 'KBBI (Bahasa)',
+        desc: 'Sifat toleran; menghargai, membiarkan, atau membolehkan pendirian yang berbeda dengan diri sendiri.',
+        icon: 'Book'
+      },
+      {
         title: 'Tolerance (Inggris)',
-        desc: 'Kesabaran, kelapangan dada.',
+        desc: 'Berasal dari kata "Tolerare" yang berarti kesabaran, daya tahan, dan kelapangan dada.',
         icon: 'Heart'
       },
       {
         title: 'Tasamuh (Arab)',
-        desc: 'Sama-sama berlaku baik, lemah lembut, dan saling pemaaf.',
+        desc: 'Berarti lembut dan murah hati. Sikap berlapang dada dan menghargai perbedaan tanpa melepas prinsip.',
         icon: 'Handshake'
-      },
-      {
-        title: 'Al-Hanifiyyah',
-        desc: 'Jalan lurus yang lapang dan tidak sempit (HR. Ahmad).',
-        icon: 'Zap'
-      },
-      {
-        title: 'Al-Samhah',
-        desc: 'Toleran, memudahkan, tidak memberatkan.',
-        icon: 'Scale'
       }
-    ]
+    ],
+    footerText: 'Berdasarkan H.R. Ahmad, ajaran yang paling dicintai Allah adalah <b>al-hanifiyyah</b> (jalan lurus yang jauh dari kebatilan) dan <b>al-samhah</b> (toleran/mudah). Prinsip ini dibangun di atas kemudahan, sebagaimana firman-Nya: <i>"Dan Dia tidak menjadikan kesukaran bagi kalian dalam agama ini..."</i> (Q.S. al-Hajj: 78).'
   },
 
-  // --- INTERNAL TOLERANCE (ZIGZAG) ---
+  // --- TOLERANSI INTERNAL (REDESIGN) ---
   {
     id: '6-internal',
-    type: 'zigzag',
+    type: 'story',
     section: 'TOLERANSI INTERNAL',
     title: 'Sesama Muslim',
-    subtitle: 'Menghargai perbedaan pendapat (Furu\'iyah)',
-    bullets: [
+    subtitle: 'Menelusuri Hikmah dalam Perbedaan Furu\'iyah',
+    items: [
       {
-        text: 'Nabi Marah pada Muadz: Karena memanjangkan shalat saat jadi imam, memberatkan makmum yang sakit/lemah. "Apakah kamu ingin membuat fitnah (kekacauan)?"',
-        icon: 'AlertTriangle'
+        title: 'Teguran Nabi kepada Mu\'adz',
+        desc: 'Sahabat Mu\'adz bin Jabal pernah memanjangkan bacaan shalat saat menjadi imam, sehingga seorang makmum yang kelelahan melapor kepada Nabi. Mendengar hal itu, Nabi sangat marah dan menegur: "Wahai Mu\'adz! Apakah kamu ingin menjadi tukang fitnah (membuat orang lari dari agama)?"',
+        icon: 'AlertTriangle',
+        wisdom: 'Seorang pemimpin harus peka terhadap kondisi makmumnya (lemah, sakit, atau punya hajat). Toleransi berarti memudahkan, bukan memberatkan.',
+        metaTitle: 'Prinsip Kemudahan',
+        metaDesc: 'Al-Samhah dalam Ibadah'
       },
       {
-        text: 'KH Hasyim Asyari & KH Faqih: Saling menghormati perbedaan penggunaan Bedug vs Kentongan. Saat berkunjung, tuan rumah menyesuaikan diri demi menghormati tamu.',
-        icon: 'Handshake'
+        title: 'Bedug vs Kentongan',
+        desc: 'KH. Hasyim Asy\'ari (Tebuireng) menggunakan bedug, sedangkan KH. Abdullah Faqih (Maskumambang) menggunakan kentongan. Saat Kiai Hasyim berkunjung, Kiai Faqih memerintahkan santrinya mengganti sementara kentongan dengan bedug demi menghormati sang tamu.',
+        icon: 'Handshake',
+        wisdom: 'Perbedaan pendapat dalam masalah cabang (furu\'iyah) tidak boleh merusak ukhuwah. Penghormatan sosial jauh lebih tinggi daripada memaksakan pendapat pribadi.',
+        metaTitle: 'Ulama Nusantara',
+        metaDesc: 'Adab di Atas Perbedaan'
       }
     ]
   },
