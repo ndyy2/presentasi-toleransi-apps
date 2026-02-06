@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+}
+
+:root {
+  --color-brand-primary: #15803d;
+  /* Green 700 */
+  --color-brand-secondary: #052e16;
+  /* Green 950 */
+  --color-brand-accent: #D4AF37;
+  /* Gold */
+
+  --color-bg-calm: #f0fdf4;
+  /* Green 50 */
+  --color-bg-paper: #FFFFFF;
+
+  --shadow-premium: 0 20px 60px -15px rgba(0, 0, 0, 0.1);
+  --shadow-float: 0 10px 30px -10px rgba(30, 58, 138, 0.15);
+  --radius-premium: 2rem;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-calm);
+  color: var(--color-brand-secondary);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Utility Classes for "Premium" Feel */
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-premium);
+  border-radius: var(--radius-premium);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #CFB53B 0%, #B4922B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-brand {
+  background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
