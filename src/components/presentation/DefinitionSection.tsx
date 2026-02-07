@@ -18,7 +18,7 @@ export const DefinitionSection = ({ data }: { data: SlideContent }) => {
                             maskImage: 'radial-gradient(circle at center, black 30%, transparent 80%)'
                         }}
                     />
-                    <div className="absolute inset-0 bg-white/20 backdrop-blur-[1px]" />
+                    <div className="absolute inset-0 bg-white/40" />
                 </div>
             )}
 
@@ -60,7 +60,7 @@ export const DefinitionSection = ({ data }: { data: SlideContent }) => {
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                                className="group bg-white/60 backdrop-blur-md p-10 rounded-3xl border border-emerald-100 shadow-xl shadow-emerald-900/5 hover:border-emerald-300 hover:shadow-2xl hover:shadow-emerald-900/10 transition-all duration-500 relative overflow-hidden"
+                                className="group bg-white/90 md:bg-white/70 md:backdrop-blur-sm p-10 rounded-3xl border border-emerald-100 shadow-xl shadow-emerald-900/5 hover:border-emerald-300 hover:shadow-2xl hover:shadow-emerald-900/10 transition-all duration-500 relative overflow-hidden"
                             >
                                 <div className="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-10 transition-opacity">
                                     <Icon className="w-24 h-24" />
