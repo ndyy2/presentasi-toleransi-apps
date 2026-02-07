@@ -24,6 +24,7 @@ import { ImageOverlaySection } from '../components/presentation/ImageOverlaySect
 import { DefinitionSection } from '../components/presentation/DefinitionSection'
 import { StorySection } from '../components/presentation/StorySection'
 import { ShowcaseSection } from '../components/presentation/ShowcaseSection'
+import { ContentSection } from '../components/presentation/ContentSection'
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -39,6 +40,7 @@ const SlideRenderer = ({ data }: { data: SlideContent }) => {
     case 'definition': return <DefinitionSection data={data} />;
     case 'story': return <StorySection data={data} />;
     case 'showcase': return <ShowcaseSection data={data} />;
+    case 'content': return <ContentSection data={data} />;
     case 'zigzag': return <ZigZagSection data={data} />;
     case 'list': return <ListSection data={data} />;
     case 'reflection': return <ReflectionSection data={data} />;

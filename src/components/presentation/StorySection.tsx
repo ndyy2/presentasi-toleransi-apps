@@ -91,7 +91,7 @@ export const StorySection = ({ data }: { data: SlideContent }) => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-5xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-b from-white via-emerald-100 to-emerald-800 drop-shadow-sm"
+                        className="text-5xl md:text-5xl lg:text-6xl font-serif tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-b from-white via-emerald-100 to-emerald-800 drop-shadow-sm"
                     >
                         {data.title}
                     </motion.h2>

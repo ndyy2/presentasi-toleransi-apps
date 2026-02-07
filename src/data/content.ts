@@ -1,4 +1,9 @@
 
+import DoaDausImg from '../assets/doa-daus.png';
+import RespectFuneralImg from '../assets/respect-funeral.png';
+import SunanKudusImg from '../assets/sunan-kudus.png';
+import MedinaCharterImg from '../assets/medina-charter.png';
+
 export type SlideType =
   | 'hero'
   | 'title'
@@ -18,7 +23,9 @@ export type SlideType =
   | 'download'
   | 'definition'
   | 'story'
-  | 'showcase';
+  | 'story'
+  | 'showcase'
+  | 'content';
 
 export interface SlideContent {
   id: string;
@@ -38,6 +45,7 @@ export interface SlideContent {
     metaTitle?: string;
     metaDesc?: string;
     nickname?: string;
+    image?: string;
   }>;
   bullets?: { text: string; icon?: any; metaTitle?: string }[] | string[];
   verse?: { text: string; translation: string; source: string };
@@ -65,10 +73,10 @@ export const slides: SlideContent[] = [
     title: 'Anggota Kelompok',
     subtitle: 'Tim Penyusun Presentasi',
     items: [
-      { title: 'Anggota 1', nickname: 'Anggota', desc: 'NIM: ...', icon: 'User' },
       { title: 'Muh. Andy Pradana', nickname: 'Andy', desc: 'NIM: ...', icon: 'User' },
-      { title: 'Anggota 3', nickname: 'Anggota', desc: 'NIM: ...', icon: 'User' },
-      { title: 'Anggota 4', nickname: 'Anggota', desc: 'NIM: ...', icon: 'User' },
+      { title: 'Muh. Andy Pradana', nickname: 'Andy', desc: 'NIM: ...', icon: 'User' },
+      { title: 'Muh. Andy Pradana', nickname: 'Andy', desc: 'NIM: ...', icon: 'User' },
+      { title: 'Muh. Andy Pradana', nickname: 'Andy', desc: 'NIM: ...', icon: 'User' },
     ]
   },
 
@@ -255,17 +263,28 @@ export const slides: SlideContent[] = [
     ]
   },
 
-  // --- EXTERNAL TOLERANCE (CASE STUDY) ---
+  // --- EXTERNAL TOLERANCE (CONTENT) ---
   {
     id: '7-external',
-    type: 'case-study',
+    type: 'content',
     section: 'TOLERANSI EKSTERNAL',
-    title: 'Antar Umat Beragama',
-    subtitle: 'Hadis Riwayat Al-Bukhari',
-    content: 'Studi Kasus: Suatu hari, jenazah seorang Yahudi dibawa melewati Nabi Muhammad SAW dan para sahabat.',
-    interactionHint: 'Apa respon Nabi saat itu?',
-    image: 'https://images.unsplash.com/photo-1596561026048-ff31df95e927?q=80&w=2000&auto=format&fit=crop', // Ancient city/crowd vibe
-    // The component logic handles the reveal: "Nabi berdiri menghormati. 'Bukankah dia juga manusia?'"
+    title: 'Dasar Teologis',
+    subtitle: 'Q.S. Al-Mumtahanah: 8',
+    content: `لَا يَنْهَاكُمُ اللَّهُ عَنِ الَّذِينَ لَمْ يُقَاتِلُوكُمْ فِي الدِّينِ وَلَمْ يُخْرِجُوكُمْ مِنْ دِيَارِكُمْ أَنْ تَبَرُّوهُمْ وَتُقْسِطُوا إِلَيْهِمْ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ
+
+"Allah tidak melarang kamu berbuat baik dan berlaku adil terhadap orang-orang yang tidak memerangimu dalam urusan agama dan tidak mengusir kamu dari kampung halamanmu. Sesungguhnya Allah mencintai orang-orang yang berlaku adil."
+
+Ayat ini menegaskan bahwa Islam tidak melarang umatnya untuk berbuat baik (al-birr) dan berlaku adil (al-qist) kepada non-muslim, selama mereka tidak memusuhi Islam. Hubungan sosial yang harmonis adalah kunci kedamaian.`,
+    items: [
+      {
+        title: "Prinsip Keadilan",
+        desc: "Berlaku adil adalah perintah Allah kepada siapa saja, termasuk kepada mereka yang berbeda keyakinan."
+      },
+      {
+        title: "Hubungan Sosial",
+        desc: "Boleh menjalin hubungan baik, saling membantu, dan bekerja sama dalam urusan duniawiyah."
+      }
+    ]
   },
 
   // --- EXTERNAL EXAMPLES (SHOWCASE) ---
@@ -281,28 +300,32 @@ export const slides: SlideContent[] = [
         desc: 'Ketika al-Thufail bin \'Amr melaporkan bahwa Kabilah Daus menolak dakwah dan meminta Nabi melaknat mereka, Nabi justru berdoa: "Ya Allah berilah petunjuk kepada kabilah Daus dan datangkanlah mereka bersama orang muslim".',
         icon: 'Heart', // Icon ignored by component
         wisdom: 'Dakwah itu merangkul bukan memukul, mendoakan bukan melaknat.',
-        metaTitle: '01'
+        metaTitle: '01',
+        image: DoaDausImg
       },
       {
         title: 'Penghormatan Jenazah',
         desc: 'Saat jenazah Yahudi lewat, Nabi berdiri menghormati. Sahabat bertanya: "Bukankah itu Yahudi?" Nabi menjawab: "Bukankah dia juga manusia?"',
         icon: 'UserCheck', // Icon ignored by component
         wisdom: 'Kemanusiaan mendahului perbedaan keyakinan. Hormati manusia karena dia ciptaan Tuhan.',
-        metaTitle: '02'
+        metaTitle: '02',
+        image: RespectFuneralImg
       },
       {
         title: 'Sunan Kudus & Sapi',
         desc: 'Sunan Kudus melarang menyembelih sapi di wilayah Kudus untuk menghormati umat Hindu yang mensucikan sapi. Strategi dakwah kultural yang sangat bijak.',
         icon: 'ShieldCheck', // Icon ignored by component
         wisdom: 'Menghargai keyakinan orang lain tidak berarti mengorbankan akidah sendiri.',
-        metaTitle: '03'
+        metaTitle: '03',
+        image: SunanKudusImg
       },
       {
         title: 'Piagam Madinah',
         desc: 'Konstitusi tertulis pertama di dunia yang menjamin kebebasan beragama bagi Yahudi dan Nasrani selama mereka tidak memerangi kaum muslimin.',
         icon: 'ScrollText', // Icon ignored by component
         wisdom: 'Negara yang kuat dibangun di atas fondasi keadilan dan perlindungan hak bagi semua warganya.',
-        metaTitle: '04'
+        metaTitle: '04',
+        image: MedinaCharterImg
       }
     ]
   },
@@ -337,8 +360,6 @@ export const slides: SlideContent[] = [
     section: 'KESIMPULAN',
     title: 'Intisari Bab 6',
     subtitle: '6 Poin Penting tentang Toleransi',
-    // Using an image appropriate for summary/closing context
-    image: 'https://images.unsplash.com/photo-1542816417-0983c9c9ad53?q=80&w=2000&auto=format&fit=crop',
     bullets: [
       {
         text: '**Makna Tasamuh**: Islam adalah agama *rahmatan lil alamin* yang mengajarkan kemudahan, cinta damai, dan menghargai perbedaan sebagai sunnatullah.',
@@ -361,9 +382,9 @@ export const slides: SlideContent[] = [
         metaTitle: 'Kemanusiaan'
       },
       {
-        text: '**Akhlak Mulia**: Nabi menghormati jenazah Yahudi dan mendoakan hidayah (bukan laknat) bagi kaum yang memusuhinya. Ini adalah puncak akhlak seorang muslim.',
-        icon: 'UserCheck',
-        metaTitle: 'Adab'
+        text: '**Dasar Teologis**: Q.S. Al-Mumtahanah: 8 menegaskan bolehnya berbuat baik dan berlaku adil kepada non-muslim yang tidak memusuhi Islam.',
+        icon: 'BookOpen',
+        metaTitle: 'Dalil'
       },
       {
         text: '**Harmoni Sosial**: Tujuan akhir toleransi adalah terciptanya masyarakat yang rukun, damai, dan saling menghargai tanpa mengorbankan keyakinan masing-masing.',

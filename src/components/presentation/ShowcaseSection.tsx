@@ -57,6 +57,18 @@ export const ShowcaseSection = ({ data }: { data: SlideContent }) => {
                                     0{idx + 1}
                                 </span>
 
+                                {/* Character Illustration */}
+                                {item.image && (
+                                    <div className="w-full aspect-[4/3] mb-8 rounded-2xl overflow-hidden relative shadow-lg group-hover:shadow-2xl transition-all duration-500">
+                                        <div className="absolute inset-0 bg-emerald-900/10 mix-blend-multiply z-10 group-hover:bg-transparent transition-colors duration-500" />
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            className="w-full h-full object-cover object-bottom transform group-hover:scale-105 transition-transform duration-700"
+                                        />
+                                    </div>
+                                )}
+
                                 <h3 className="text-3xl font-serif font-bold text-slate-800 mb-4 group-hover:text-emerald-800 transition-colors relative z-10">
                                     {item.title}
                                 </h3>

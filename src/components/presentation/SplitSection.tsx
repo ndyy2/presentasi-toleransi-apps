@@ -4,7 +4,7 @@ import type { SlideContent } from '../../data/content';
 
 export const SplitSection = ({ data }: { data: SlideContent }) => {
     return (
-        <div className="min-h-screen w-full flex items-center bg-emerald-50 relative overflow-hidden">
+        <div className="min-h-screen w-full flex items-center bg-emerald-50 relative overflow-hidden py-20 px-6 md:px-0">
             <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
