@@ -10,9 +10,21 @@ export const CaseStudySection = ({ data }: { data: SlideContent }) => {
         <div className="min-h-screen w-full flex items-center justify-center bg-emerald-950 text-white relative px-6">
             <div className="max-w-4xl w-full">
                 <div className="text-center mb-12">
-                    <span className="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 text-xs font-bold tracking-widest border border-yellow-500/30 mb-6">
-                        {data.section}
-                    </span>
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="inline-flex items-center justify-center gap-4 mb-6"
+                    >
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-yellow-500/40 to-transparent" />
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="text-yellow-500 font-bold font-serif italic tracking-[0.2em] uppercase text-sm mb-1"
+                        >
+                            {data.section}
+                        </motion.span>
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-yellow-500/40 to-transparent" />
+                    </motion.div>
                     <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-emerald-200 mb-6">{data.title}</h2>
                     <p className="text-xl text-emerald-100/60">{data.subtitle}</p>
                 </div>

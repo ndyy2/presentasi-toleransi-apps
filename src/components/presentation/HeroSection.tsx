@@ -1,12 +1,16 @@
 import { motion } from 'framer-motion';
 import type { SlideContent } from '../../data/content';
 import { GeometricPattern } from '../../components/ui/GeometricPattern';
+import { BatikParangPattern } from '../../components/ui/BatikParangPattern';
 
 export const HeroSection = ({ data }: { data: SlideContent }) => {
     return (
         <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-emerald-950 text-white">
             {/* Geometric Pattern Overlay */}
             <GeometricPattern className="text-emerald-800" opacity={0.1} />
+
+            {/* NEW: Batik Parang Pattern (Subtle Background) */}
+            <BatikParangPattern className="text-emerald-400" opacity={0.07} scale={1.2} speed={120} />
 
             {/* Animated Background Elements */}
             <div className="absolute inset-0 overflow-hidden">

@@ -25,9 +25,20 @@ export const ImageOverlaySection = ({ data }: { data: SlideContent }) => {
                     transition={{ duration: 1 }}
                     className="max-w-3xl"
                 >
-                    <span className="inline-block py-2 px-4 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 text-emerald-300 text-sm font-bold tracking-widest uppercase mb-6">
-                        {data.section}
-                    </span>
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="inline-flex items-center justify-start gap-4 mb-6"
+                    >
+                        <div className="h-px w-16 bg-gradient-to-r from-emerald-400/40 to-transparent" />
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="text-emerald-300 font-bold font-serif italic tracking-[0.2em] uppercase text-sm mb-1"
+                        >
+                            {data.section}
+                        </motion.span>
+                    </motion.div>
 
                     <h2 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight text-white drop-shadow-lg">
                         {data.title}

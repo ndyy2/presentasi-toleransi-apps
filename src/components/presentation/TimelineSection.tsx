@@ -12,7 +12,21 @@ export const TimelineSection = ({ data }: { data: SlideContent }) => {
                     transition={{ duration: 0.5 }}
                     className="mb-12 text-center"
                 >
-                    <span className="text-emerald-600 font-bold tracking-widest uppercase text-sm bg-emerald-50 px-3 py-1 rounded-full">{data.section}</span>
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="inline-flex items-center justify-center gap-4 mb-6"
+                    >
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-emerald-600/40 to-transparent" />
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="text-emerald-600 font-bold font-serif italic tracking-[0.2em] uppercase text-sm mb-1"
+                        >
+                            {data.section}
+                        </motion.span>
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-emerald-600/40 to-transparent" />
+                    </motion.div>
                     <h2 className="text-4xl md:text-5xl font-bold mt-4 text-emerald-950">{data.title}</h2>
                     <p className="text-emerald-700/60 mt-2 font-medium">{data.subtitle}</p>
                 </motion.div>
