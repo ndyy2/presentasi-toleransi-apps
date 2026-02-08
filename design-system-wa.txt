@@ -1,0 +1,34 @@
+*Design System & Typography*
+
+*Typography*
+
+*Font Families*
+• *Display / Headings*: _Playfair Display_ (Serif)
+  - Usage: h1, h2, h3, h4, h5, h6
+  - Weights: 400, 600, 700, 900
+  - Character: Elegant, Traditional, Premium
+
+• *Body / UI*: _Plus Jakarta Sans_ (Sans-serif)
+  - Usage: body, p, span, div
+  - Weights: 300, 400, 500, 600, 700
+  - Character: Modern, Clean, Legible
+
+---
+
+*Color Palette*
+
+*Brand Colors*
+• *Primary*: `#15803d` (Emerald 700)
+• *Secondary*: `#052e16` (Emerald 950)
+• *Accent*: `#D4AF37` (Gold)
+
+*Backgrounds*
+• *Calm*: `#f0fdf4` (Green 50)
+• *Paper*: `#FFFFFF` (White)
+
+*Brand Gradients*
+• *Gold*: `linear-gradient(135deg, #CFB53B 0%, #B4922B 100%)`
+
+*Effects*
+• *Premium Shadow*: `0 20px 60px -15px rgba(0, 0, 0, 0.1)`
+• *Glass Panel*: `rgba(255, 255, 255, 0.7)` with `backdrop-filter: blur(12px)`
