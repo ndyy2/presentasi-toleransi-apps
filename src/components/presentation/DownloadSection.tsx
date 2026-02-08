@@ -71,7 +71,7 @@ export const DownloadSection = ({ data }: { data: SlideContent }) => {
 };
 
 // Sub-component for cleaner code
-const DownloadCard = ({ href, icon, title, format, delay }: { href: string; icon: React.ReactNode; title: string; format: string; delay: number }) => (
+const DownloadCard = ({ href, icon, title, format }: { href: string; icon: React.ReactNode; title: string; format: string; delay: number }) => (
     <motion.a
         href={href}
         download
