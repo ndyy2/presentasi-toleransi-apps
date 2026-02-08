@@ -118,8 +118,7 @@ function Index() {
   return (
     <div
       ref={scrollRef}
-      className="h-screen w-full overflow-y-scroll scroll-smooth relative bg-white no-scrollbar"
-      style={{ scrollBehavior: 'smooth' }}
+      className="h-screen w-full overflow-y-scroll snap-y snap-mandatory relative bg-emerald-950 no-scrollbar"
     >
       <style>{`
         .no-scrollbar::-webkit-scrollbar {
@@ -135,9 +134,12 @@ function Index() {
         <section
           key={slide.id}
           id={slide.id}
-          className="w-full min-h-screen shrink-0 overflow-hidden relative"
+          className="w-full h-screen shrink-0 snap-start snap-always overflow-hidden relative flex flex-col"
         >
-          <SlideRenderer data={slide} />
+          {/* Internal Scroll Wrapper for "Hybrid" feel */}
+          <div className="w-full h-full overflow-y-auto no-scrollbar">
+            <SlideRenderer data={slide} />
+          </div>
         </section>
       ))}
 
