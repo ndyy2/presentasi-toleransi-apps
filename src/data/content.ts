@@ -343,6 +343,48 @@ Ayat ini menegaskan bahwa Islam tidak melarang umatnya untuk berbuat baik (al-bi
     }
   },
 
+  // --- TAFSIR AL-MAIDAH: 32 (GRID) ---
+  {
+    id: '9c-tafsir-maidah',
+    type: 'grid',
+    section: 'TAFSIR',
+    title: 'Makna Ayat',
+    subtitle: 'Penjelasan Ulama tentang Q.S. Al-Maidah: 32',
+    image: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=2000&auto=format&fit=crop', // Book/Library context
+    items: [
+      {
+        title: 'Universalitas Hukum',
+        desc: 'Ibnu \'Asyur menjelaskan bahwa syari\'at ini telah ditetapkan sejak masa Bani Isra\'il dan tetap berlaku bagi umat Islam karena mengandung kemaslahatan universal (hifz an-nafs).',
+        icon: 'Globe',
+        metaTitle: 'Ibnu \'Asyur'
+      },
+      {
+        title: 'Konteks Historis',
+        desc: 'Buya Hamka (Tafsir Al-Azhar) menyoroti bahwa aturan ini ditekankan pada Bani Isra\'il karena sejarah mereka yang mudah menumpahkan darah, bahkan membunuh para Nabi.',
+        icon: 'History',
+        metaTitle: 'Buya Hamka'
+      },
+      {
+        title: 'Alasan Pelarangan',
+        desc: 'Al-Maraghi menegaskan bahwa pembunuhan hanya dibenarkan dalam penegakan hukum (qishash) atau perang (jihad). Diluar itu, pembunuhan merusak tatanan kehidupan.',
+        icon: 'ShieldAlert',
+        metaTitle: 'Al-Maraghi'
+      },
+      {
+        title: 'Nilai Satu Nyawa',
+        desc: '"...seakan-akan dia telah memelihara kehidupan semua manusia". Menyelamatkan satu nyawa adalah representasi penghargaan tertinggi terhadap hak asasi manusia.',
+        icon: 'HeartHandshake',
+        metaTitle: 'Prinsip Kemanusiaan'
+      },
+      {
+        title: 'Ancaman Kerusakan',
+        desc: 'Ayat ini menutup dengan peringatan bahwa meskipun rasul telah datang membawa bukti nyata, masih banyak manusia yang "melampaui batas" (israf) dengan berbuat kerusakan.',
+        icon: 'AlertTriangle',
+        metaTitle: 'Peringatan'
+      }
+    ]
+  },
+
   // --- NEW: IMAGE OVERLAY SECTION ---
   {
     id: '9b-visual-break',

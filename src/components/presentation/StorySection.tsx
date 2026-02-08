@@ -6,175 +6,194 @@ import { GeometricPattern } from '../ui/GeometricPattern';
 
 const LanternSVG = ({ className }: { className?: string }) => (
     <svg viewBox="0 0 40 60" className={cn("w-12 h-20 fill-none stroke-current", className)} xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 5 L20 10" strokeWidth="2" />
+        <path d="M20 0 L20 10" strokeWidth="1" className="opacity-50" />
         <path d="M10 10 L30 10 L35 20 L35 40 L30 50 L10 50 L5 40 L5 20 Z" strokeWidth="1.5" />
-        <path d="M10 20 L30 20" strokeWidth="1" opacity="0.5" />
-        <path d="M10 40 L30 40" strokeWidth="1" opacity="0.5" />
-        <path d="M20 10 L20 50" strokeWidth="1" opacity="0.3" />
-        <circle cx="20" cy="30" r="4" className="fill-current opacity-20" />
-        <path d="M15 50 L15 55 M25 50 L25 55" strokeWidth="1.5" />
+        {/* Inner details */}
+        <path d="M10 20 L30 20" strokeWidth="0.5" opacity="0.3" />
+        <path d="M7 30 L33 30" strokeWidth="0.5" opacity="0.3" />
+        <path d="M10 40 L30 40" strokeWidth="0.5" opacity="0.3" />
+
+        {/* Center decorative line */}
+        <path d="M20 10 L20 50" strokeWidth="0.5" opacity="0.3" />
+
+        {/* Light glow center - No Blur */}
+        <circle cx="20" cy="30" r="2" className="fill-yellow-200/50" />
+
+        {/* Bottom tassel */}
+        <path d="M20 50 L20 60" strokeWidth="1" className="opacity-50" />
+        <circle cx="20" cy="60" r="1.5" className="fill-current" />
     </svg>
 );
 
-const MihrabArchLine = ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 100 200" className={cn("fill-none stroke-current", className)} xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 200 L10 50 C10 25 30 10 50 10 C70 10 90 25 90 50 L90 200" strokeWidth="1" />
-        <path d="M20 200 L20 55 C20 35 35 20 50 20 C65 20 80 35 80 55 L80 200" strokeWidth="0.5" opacity="0.5" />
-    </svg>
+const Divider = ({ className }: { className?: string }) => (
+    <div className={cn("flex items-center justify-center gap-4 py-12 opacity-30", className)}>
+        <div className="h-px w-24 bg-gradient-to-r from-transparent via-emerald-400 to-transparent" />
+        <div className="w-1.5 h-1.5 rotate-45 border border-emerald-400" />
+        <div className="h-px w-24 bg-gradient-to-r from-transparent via-emerald-400 to-transparent" />
+    </div>
 );
 
 export const StorySection = ({ data }: { data: SlideContent }) => {
     return (
-        <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-emerald-950 text-white py-32 px-6">
-            {/* Geometric Pattern Overlay (Same as Hero) */}
-            <GeometricPattern className="text-emerald-800" opacity={0.1} />
+        <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-emerald-950 text-white py-24 px-6 md:py-32">
 
-            {/* Animated Background Elements (Same as Hero) */}
-            <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-                <div className="absolute top-[-10%] left-[-5%] w-[50vw] h-[50vw] rounded-full bg-emerald-600/10 blur-[100px] animate-float" />
-                <div className="absolute bottom-[-10%] right-[-5%] w-[50vw] h-[50vw] rounded-full bg-teal-600/5 blur-[100px] animate-float opacity-50" style={{ animationDelay: '-4s' }} />
+            {/* NOISE TEXTURE OVERLAY - Reduced Opacity further */}
+            <div className="absolute inset-0 opacity-[0.02] pointer-events-none z-[1]"
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
+            />
+
+            {/* Geometric Pattern Overlay - Reduced Opacity */}
+            <GeometricPattern className="text-emerald-400" opacity={0.02} />
+
+            {/* Ambient Background Glows - NO BLURS, PURE GRADIENTS */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {/* Top Gradient */}
+                <div className="absolute top-0 left-0 right-0 h-[40vh] bg-gradient-to-b from-emerald-900/40 to-transparent" />
+
+                {/* Bottom Right Gradient */}
+                <div className="absolute bottom-0 right-0 w-[60vw] h-[60vw] bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-emerald-800/20 via-emerald-900/5 to-transparent opacity-50" />
+
+                {/* Center Left Subtle Gradient */}
+                <div className="absolute top-1/2 left-0 w-[40vw] h-[40vw] -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-800/10 via-transparent to-transparent opacity-30" />
             </div>
 
-            {/* "Little Addition": Mihrab Arch Accents */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none flex justify-between px-[5vw]">
-                <MihrabArchLine className="h-full w-auto text-emerald-400" />
-                <MihrabArchLine className="h-full w-auto text-emerald-400" />
-            </div>
-
-            {/* Lantern Ornaments */}
+            {/* Animated Lanterns (Top Corners) */}
             <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-10 left-[12%] text-emerald-400/20 hidden min-[1400px]:block"
+                animate={{ y: [0, 8, 0], rotate: [0, 1, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-0 left-[10%] text-emerald-400/20 hidden xl:block origin-top z-10"
             >
-                <div className="w-px h-24 bg-emerald-800/30 mx-auto" />
+                <div className="w-[1px] h-24 bg-gradient-to-b from-transparent via-emerald-500/20 to-emerald-500/40 mx-auto" />
                 <LanternSVG />
             </motion.div>
 
             <motion.div
-                animate={{ y: [0, 15, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-10 right-[12%] text-emerald-400/20 hidden min-[1400px]:block"
+                animate={{ y: [0, 12, 0], rotate: [0, -1, 0] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                className="absolute top-0 right-[10%] text-emerald-400/20 hidden xl:block origin-top z-10"
             >
-                <div className="w-px h-40 bg-emerald-800/30 mx-auto" />
-                <LanternSVG className="w-16 h-24" />
+                <div className="w-[1px] h-32 bg-gradient-to-b from-transparent via-emerald-500/20 to-emerald-500/40 mx-auto" />
+                <LanternSVG />
             </motion.div>
 
-            {/* Background Image if available */}
-            {data.image && (
-                <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none mix-blend-color-dodge">
-                    <img src={data.image} alt="" className="w-full h-full object-cover grayscale" />
-                </div>
-            )}
 
-            <div className="relative z-10 container mx-auto max-w-6xl">
-                {/* Header */}
-                <div className="text-center mb-24 relative">
+            {/* Content Container */}
+            <div className="relative z-10 container mx-auto max-w-5xl">
+
+                {/* Header Section - Tightened margins */}
+                <div className="text-center mb-20 md:mb-32 relative">
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center justify-center gap-4 mb-8"
+                        transition={{ duration: 0.6 }}
+                        className="inline-flex items-center justify-center gap-4 mb-6"
                     >
-                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent" />
-                        <motion.span
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            className="text-emerald-400 font-bold font-serif italic tracking-[0.2em] uppercase text-sm mb-1"
-                        >
+                        <span className="text-emerald-400/80 font-medium font-serif italic tracking-[0.25em] uppercase text-[10px] md:text-xs">
                             {data.section}
-                        </motion.span>
-                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent" />
+                        </span>
                     </motion.div>
 
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="text-5xl md:text-5xl lg:text-6xl font-serif tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-b from-white via-emerald-100 to-emerald-800 drop-shadow-sm"
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="text-4xl md:text-6xl lg:text-7xl font-serif font-medium tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-emerald-100 to-emerald-400/50 drop-shadow-sm pb-6 leading-[1.1]"
                     >
                         {data.title}
                     </motion.h2>
 
                     <motion.div
-                        initial={{ width: 0, opacity: 0 }}
-                        whileInView={{ width: "80px", opacity: 0.8 }}
-                        transition={{ delay: 0.5, duration: 1 }}
-                        className="h-1.5 bg-gradient-to-r from-emerald-500 to-yellow-500 mx-auto mt-8 rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "40px" }}
+                        transition={{ delay: 0.3, duration: 1 }}
+                        className="h-px bg-emerald-500/50 mx-auto mt-2"
                     />
 
                     <motion.p
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2, duration: 0.8 }}
-                        className="text-xl md:text-2xl text-emerald-100/60 font-light max-w-3xl mx-auto mt-10 leading-relaxed"
+                        transition={{ delay: 0.4 }}
+                        className="text-base md:text-xl text-emerald-100/60 font-serif italic max-w-2xl mx-auto mt-8 leading-relaxed"
                     >
                         {data.subtitle}
                     </motion.p>
                 </div>
 
-                {/* Stories List */}
-                <div className="space-y-40">
+                {/* Editorial Flow Items - Tightened spacing */}
+                <div className="space-y-20 md:space-y-32">
                     {data.items?.map((item: any, idx) => {
                         const Icon = item.icon ? (LucideIcons as any)[item.icon] : LucideIcons.Quote;
-                        const isEven = idx % 2 === 0;
 
                         return (
-                            <div key={idx} className={cn("flex flex-col lg:flex-row items-center gap-16 lg:gap-24", isEven ? "" : "lg:flex-row-reverse")}>
-                                {/* Story Card */}
+                            <div key={idx} className="relative">
                                 <motion.div
-                                    initial={{ opacity: 0, x: isEven ? -40 : 40 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 1 }}
-                                    className="flex-[1.2] w-full"
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8, ease: "easeOut" }}
+                                    className="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_2.5fr] gap-8 md:gap-20 items-start"
                                 >
-                                    <div className="bg-emerald-900/10 backdrop-blur-2xl rounded-[3rem] p-12 md:p-16 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] border border-white/5 relative group transition-all duration-700 hover:bg-emerald-900/20 hover:border-emerald-500/20 overflow-hidden">
-                                        <div className="absolute top-0 right-0 p-10 opacity-[0.02] group-hover:opacity-5 transition-opacity">
-                                            <Icon className="w-56 h-56" />
+                                    {/* Sidebar / Icon / Meta */}
+                                    <div className="md:text-right flex flex-row md:flex-col items-center md:items-end gap-6 md:gap-6 pt-2 md:sticky md:top-32">
+                                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-emerald-500/10 flex items-center justify-center text-emerald-300 bg-emerald-900/20">
+                                            <Icon className="w-5 h-5 md:w-7 md:h-7" />
                                         </div>
-
-                                        <div className="flex items-center gap-6 mb-10">
-                                            <div className="w-14 h-14 rounded-2xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center border border-emerald-500/30">
-                                                <Icon className="w-7 h-7" />
-                                            </div>
-                                            <h3 className="text-3xl font-black text-white tracking-tight">{item.title}</h3>
+                                        <div className="text-left md:text-right space-y-1">
+                                            <h4 className="text-emerald-200 font-serif text-base md:text-lg tracking-wide">
+                                                {item.metaTitle || "Refleksi"}
+                                            </h4>
+                                            <p className="text-emerald-500/50 text-[10px] uppercase tracking-[0.2em] font-bold">
+                                                {item.metaDesc || "Nilai Luhur"}
+                                            </p>
                                         </div>
+                                    </div>
 
-                                        <div className="space-y-10">
-                                            <p className="text-emerald-100/80 text-xl leading-relaxed font-serif italic border-l-4 border-emerald-500/40 pl-8">
+                                    {/* Main Content */}
+                                    <div className="space-y-8 relative">
+                                        {/* Vertical Guide Line (Mobile Hidden) */}
+                                        <div className="absolute -left-10 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-500/0 via-emerald-500/10 to-emerald-500/0 hidden md:block" />
+
+                                        <h3 className="text-2xl md:text-4xl lg:text-5xl font-serif text-white leading-[1.2] tracking-tight text-left">
+                                            {item.title}
+                                        </h3>
+
+                                        <div className="prose prose-lg prose-invert max-w-none">
+                                            <p className="text-emerald-100/80 text-base md:text-xl leading-relaxed font-light font-sans tracking-wide text-left text-pretty">
                                                 {item.desc}
                                             </p>
+                                        </div>
 
-                                            {item.wisdom && (
-                                                <div className="pt-10 border-t border-white/5">
-                                                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-400 mb-4 block opacity-60">Hikmah & Pelajaran</span>
-                                                    <p className="text-white font-bold text-xl leading-relaxed">
-                                                        {item.wisdom}
-                                                    </p>
+                                        {item.wisdom && (
+                                            <div className="pt-6">
+                                                <div className="pl-6 md:pl-10 border-l-2 border-emerald-500/20 relative py-2">
+                                                    <div className="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-emerald-500/30" />
+                                                    <div className="absolute -left-[5px] bottom-0 w-2 h-2 rounded-full bg-emerald-500/30" />
+
+                                                    <div className="flex items-center gap-3 mb-4 opacity-60">
+                                                        <span className="h-px w-6 bg-emerald-400" />
+                                                        <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-emerald-300">
+                                                            Hikmah
+                                                        </span>
+                                                    </div>
+                                                    <blockquote className="text-lg md:text-2xl font-serif italic text-white/90 leading-relaxed text-left">
+                                                        "{item.wisdom}"
+                                                    </blockquote>
                                                 </div>
-                                            )}
-                                        </div>
+                                            </div>
+                                        )}
                                     </div>
                                 </motion.div>
 
-                                {/* Visual Side */}
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 1, delay: 0.2 }}
-                                    className="flex-1 flex flex-col items-center justify-center text-center py-10"
-                                >
-                                    <div className="relative mb-10 group">
-                                        <div className="w-48 h-48 rounded-full bg-emerald-500/10 blur-[60px] absolute inset-0 group-hover:bg-emerald-500/20 transition-all duration-500" />
-                                        <div className="w-24 h-24 rounded-[2rem] bg-emerald-950 border border-emerald-500/30 flex items-center justify-center relative z-10 text-emerald-300 shadow-2xl transition-transform duration-500 group-hover:rotate-12">
-                                            <LucideIcons.Sparkles className="w-10 h-10" />
-                                        </div>
-                                    </div>
-                                    <h4 className="text-emerald-400 font-black text-xl mb-4 uppercase tracking-[0.2em]">{item.metaTitle || "Context"}</h4>
-                                    <p className="text-emerald-100/30 text-sm max-w-xs font-bold uppercase tracking-widest leading-loose">
-                                        {item.metaDesc || "Perbedaan dalam Furu'iyah"}
-                                    </p>
-                                </motion.div>
+                                {/* Divider (except for last item) */}
+                                {idx < (data.items?.length || 0) - 1 && (
+                                    <motion.div
+                                        initial={{ opacity: 0 }}
+                                        whileInView={{ opacity: 1 }}
+                                        transition={{ delay: 0.5 }}
+                                        className="mt-16 md:mt-24"
+                                    >
+                                        <Divider />
+                                    </motion.div>
+                                )}
                             </div>
                         );
                     })}

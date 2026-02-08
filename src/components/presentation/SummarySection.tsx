@@ -9,12 +9,12 @@ export const SummarySection = ({ data }: { data: SlideContent }) => {
             {/* Background Texture - Manuscript Paper Feel */}
             <div className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/cream-paper.png")' }}></div>
 
-            {/* Decorative Frame */}
-            <div className="absolute inset-8 border border-emerald-900/10 pointer-events-none">
-                <div className="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-emerald-800/20 rounded-tl-3xl" />
-                <div className="absolute top-0 right-0 w-32 h-32 border-t-2 border-r-2 border-emerald-800/20 rounded-tr-3xl" />
-                <div className="absolute bottom-0 left-0 w-32 h-32 border-b-2 border-l-2 border-emerald-800/20 rounded-bl-3xl" />
-                <div className="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-emerald-800/20 rounded-br-3xl" />
+            {/* Decorative Frame - Responsive */}
+            <div className="absolute inset-4 md:inset-6 lg:inset-8 border border-emerald-900/10 pointer-events-none">
+                <div className="absolute top-0 left-0 w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 border-t-2 border-l-2 border-emerald-800/20 rounded-tl-2xl md:rounded-tl-3xl" />
+                <div className="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 border-t-2 border-r-2 border-emerald-800/20 rounded-tr-2xl md:rounded-tr-3xl" />
+                <div className="absolute bottom-0 left-0 w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 border-b-2 border-l-2 border-emerald-800/20 rounded-bl-2xl md:rounded-bl-3xl" />
+                <div className="absolute bottom-0 right-0 w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 border-b-2 border-r-2 border-emerald-800/20 rounded-br-2xl md:rounded-br-3xl" />
             </div>
 
             {/* Central Geometric Decoration */}
@@ -45,9 +45,9 @@ export const SummarySection = ({ data }: { data: SlideContent }) => {
                     </motion.div>
 
                     <motion.h2
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                         className="text-6xl md:text-7xl font-serif font-medium text-emerald-950 mb-6 tracking-tight"
                     >
                         {data.title}
