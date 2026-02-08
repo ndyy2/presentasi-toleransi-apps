@@ -23,6 +23,8 @@ import { TeamMembersSection } from '../components/presentation/TeamMembersSectio
 import { ImageOverlaySection } from '../components/presentation/ImageOverlaySection'
 import { DefinitionSection } from '../components/presentation/DefinitionSection'
 import { StorySection } from '../components/presentation/StorySection'
+import { ShowcaseSection } from '../components/presentation/ShowcaseSection'
+import { ContentSection } from '../components/presentation/ContentSection'
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -37,6 +39,8 @@ const SlideRenderer = ({ data }: { data: SlideContent }) => {
     case 'diagram': return <DiagramSection data={data} />;
     case 'definition': return <DefinitionSection data={data} />;
     case 'story': return <StorySection data={data} />;
+    case 'showcase': return <ShowcaseSection data={data} />;
+    case 'content': return <ContentSection data={data} />;
     case 'zigzag': return <ZigZagSection data={data} />;
     case 'list': return <ListSection data={data} />;
     case 'reflection': return <ReflectionSection data={data} />;
@@ -165,7 +169,7 @@ function Index() {
                 {/* Tooltip */}
                 <span className={cn(
                   "absolute right-6 px-3 py-1 rounded-md bg-black/80 text-white text-[10px] uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap backdrop-blur-sm",
-                  activeId === slide.id && "bg-blue-600"
+                  activeId === slide.id && "bg-emerald-600"
                 )}>
                   {slide.title}
                 </span>
@@ -174,7 +178,7 @@ function Index() {
                 <div className={cn(
                   "w-2 h-2 rounded-full transition-all duration-300",
                   activeId === slide.id
-                    ? "bg-blue-600 scale-150 ring-4 ring-blue-600/20"
+                    ? "bg-emerald-600 scale-150 ring-4 ring-emerald-600/20"
                     : "bg-slate-300 hover:bg-slate-400"
                 )} />
               </a>

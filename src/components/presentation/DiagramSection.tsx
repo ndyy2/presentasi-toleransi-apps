@@ -24,7 +24,21 @@ export const DiagramSection = ({ data }: { data: SlideContent }) => {
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
-                    <span className="text-emerald-700 font-bold tracking-widest uppercase text-xs bg-emerald-100/80 px-4 py-1.5 rounded-full border border-emerald-200/50">{data.section}</span>
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="inline-flex items-center justify-center gap-4 mb-6"
+                    >
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-emerald-600/40 to-transparent" />
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="text-emerald-600 font-bold font-serif italic tracking-[0.2em] uppercase text-sm mb-1"
+                        >
+                            {data.section}
+                        </motion.span>
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-emerald-600/40 to-transparent" />
+                    </motion.div>
                     <h2 className="text-4xl md:text-6xl font-black mt-6 text-emerald-950 tracking-tight">{data.title}</h2>
                     <p className="text-emerald-900/80 mt-4 text-xl font-medium max-w-2xl mx-auto">{data.subtitle}</p>
                 </div>

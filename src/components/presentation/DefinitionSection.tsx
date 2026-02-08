@@ -25,18 +25,26 @@ export const DefinitionSection = ({ data }: { data: SlideContent }) => {
             <div className="container mx-auto max-w-6xl relative z-10">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <motion.span
-                        initial={{ opacity: 0, y: 10 }}
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-emerald-700 font-bold tracking-widest uppercase text-xs bg-emerald-100/80 px-4 py-1.5 rounded-full border border-emerald-200/50 inline-block mb-6 shadow-sm"
+                        className="inline-flex items-center justify-center gap-4 mb-6"
                     >
-                        {data.section}
-                    </motion.span>
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-emerald-600/40 to-transparent" />
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="text-emerald-600 font-bold font-serif italic tracking-[0.2em] uppercase text-sm mb-1"
+                        >
+                            {data.section}
+                        </motion.span>
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-emerald-600/40 to-transparent" />
+                    </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-5xl md:text-7xl font-black text-emerald-950 tracking-tight leading-tight"
+                        className="text-5xl md:text-5xl font-black text-emerald-950 tracking-tight leading-tight"
                     >
                         {data.title}
                     </motion.h2>

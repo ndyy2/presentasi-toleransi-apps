@@ -20,7 +20,21 @@ export const ReflectionSection = ({ data }: { data: SlideContent }) => {
         <div className="min-h-screen w-full flex items-center justify-center bg-emerald-50 px-6">
             <div className="max-w-2xl w-full">
                 <div className="text-center mb-12">
-                    <span className="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-2 block">{data.section}</span>
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="inline-flex items-center justify-center gap-4 mb-6"
+                    >
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-emerald-600/40 to-transparent" />
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="text-emerald-600 font-bold font-serif italic tracking-[0.2em] uppercase text-sm mb-1"
+                        >
+                            {data.section}
+                        </motion.span>
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-emerald-600/40 to-transparent" />
+                    </motion.div>
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-900">{data.title}</h2>
                     <p className="text-slate-500 mt-2">{data.subtitle}</p>
                 </div>

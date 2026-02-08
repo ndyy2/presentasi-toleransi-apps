@@ -4,14 +4,27 @@ import type { SlideContent } from '../../data/content';
 
 export const SplitSection = ({ data }: { data: SlideContent }) => {
     return (
-        <div className="min-h-screen w-full flex items-center bg-emerald-50 relative overflow-hidden">
+        <div className="min-h-screen w-full flex items-center bg-emerald-50 relative overflow-hidden py-20 px-6 md:px-0">
             <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <span className="text-emerald-600 font-bold tracking-widest uppercase text-sm mb-4 block bg-white/50 w-fit px-3 py-1 rounded-full">{data.section}</span>
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="inline-flex items-center justify-start gap-4 mb-6"
+                    >
+                        <div className="h-px w-16 bg-gradient-to-r from-emerald-600/40 to-transparent" />
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="text-emerald-600 font-bold font-serif italic tracking-[0.2em] uppercase text-sm mb-1"
+                        >
+                            {data.section}
+                        </motion.span>
+                    </motion.div>
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 text-emerald-950 leading-tight">{data.title}</h2>
                     <p className="text-xl text-emerald-800/70 mb-8 max-w-lg">{data.subtitle}</p>
 

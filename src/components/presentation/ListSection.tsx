@@ -6,8 +6,23 @@ export const ListSection = ({ data }: { data: SlideContent }) => {
     return (
         <div className="min-h-screen w-full flex items-center bg-white relative py-20">
             <div className="container mx-auto px-6 max-w-4xl">
-                <div className="mb-12">
-                    <span className="text-emerald-600 font-bold tracking-widest uppercase text-sm">{data.section}</span>
+                <div className="mb-12 text-center md:text-left">
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="inline-flex items-center justify-center md:justify-start gap-4 mb-6"
+                    >
+                        <div className="h-px w-16 bg-gradient-to-r from-emerald-600/40 to-transparent md:hidden" />
+                        <div className="hidden md:block h-px w-12 bg-gradient-to-r from-emerald-600/40 to-transparent" />
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="text-emerald-600 font-bold font-serif italic tracking-[0.2em] uppercase text-sm mb-1"
+                        >
+                            {data.section}
+                        </motion.span>
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-emerald-600/40 to-transparent md:hidden" />
+                    </motion.div>
                     <h2 className="text-4xl md:text-5xl font-bold mt-2 text-slate-900">{data.title}</h2>
                     <p className="text-slate-500 mt-2 text-lg">{data.subtitle}</p>
                 </div>

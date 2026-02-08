@@ -8,7 +8,21 @@ export const ZigZagSection = ({ data }: { data: SlideContent }) => {
         <div className="min-h-screen w-full flex items-center bg-slate-50 relative py-20">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16 max-w-3xl mx-auto">
-                    <span className="text-emerald-600 font-bold tracking-widest uppercase text-sm">{data.section}</span>
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="inline-flex items-center justify-center gap-4 mb-6"
+                    >
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-emerald-600/40 to-transparent" />
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="text-emerald-600 font-bold font-serif italic tracking-[0.2em] uppercase text-sm mb-1"
+                        >
+                            {data.section}
+                        </motion.span>
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-emerald-600/40 to-transparent" />
+                    </motion.div>
                     <h2 className="text-4xl md:text-5xl font-bold mt-2 text-slate-900">{data.title}</h2>
                     <p className="text-slate-500 mt-4 text-lg">{data.subtitle}</p>
                 </div>

@@ -1,4 +1,9 @@
 
+import DoaDausImg from '../assets/doa-daus.png';
+import RespectFuneralImg from '../assets/respect-funeral.png';
+import SunanKudusImg from '../assets/sunan-kudus.png';
+import MedinaCharterImg from '../assets/medina-charter.png';
+
 export type SlideType =
   | 'hero'
   | 'title'
@@ -17,7 +22,10 @@ export type SlideType =
   | 'team-members'
   | 'download'
   | 'definition'
-  | 'story';
+  | 'story'
+  | 'story'
+  | 'showcase'
+  | 'content';
 
 export interface SlideContent {
   id: string;
@@ -36,8 +44,10 @@ export interface SlideContent {
     wisdom?: string;
     metaTitle?: string;
     metaDesc?: string;
+    nickname?: string;
+    image?: string;
   }>;
-  bullets?: { text: string; icon?: any }[] | string[];
+  bullets?: { text: string; icon?: any; metaTitle?: string }[] | string[];
   verse?: { text: string; translation: string; source: string };
   interactionHint?: string;
 }
@@ -63,11 +73,10 @@ export const slides: SlideContent[] = [
     title: 'Anggota Kelompok',
     subtitle: 'Tim Penyusun Presentasi',
     items: [
-      { title: 'Anggota 1', desc: 'NIM: ...', icon: 'User' },
-      { title: 'Anggota 2', desc: 'NIM: ...', icon: 'User' },
-      { title: 'Anggota 3', desc: 'NIM: ...', icon: 'User' },
-      { title: 'Anggota 4', desc: 'NIM: ...', icon: 'User' },
-      { title: 'Anggota 5', desc: 'NIM: ...', icon: 'User' },
+      { title: 'Muh. Andy Pradana', nickname: 'Andy', desc: 'NIM: ...', icon: 'User' },
+      { title: 'Muh. Andy Pradana', nickname: 'Andy', desc: 'NIM: ...', icon: 'User' },
+      { title: 'Muh. Andy Pradana', nickname: 'Andy', desc: 'NIM: ...', icon: 'User' },
+      { title: 'Muh. Andy Pradana', nickname: 'Andy', desc: 'NIM: ...', icon: 'User' },
     ]
   },
 
@@ -154,19 +163,46 @@ export const slides: SlideContent[] = [
     image: 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=2000&auto=format&fit=crop', // Books/Light context
     items: [
       {
-        title: 'Jalalain',
-        desc: 'Penduduk Mekkah terbagi dua: yang beriman (warga surga) dan yang kufur selamanya (ahli neraka).',
-        icon: 'BookOpen'
+        title: 'Pembagian Kelompok',
+        desc: 'Penduduk Makkah terbagi dua: yang beriman kepada Al-Qur\'an dan yang tetap kufur selamanya.',
+        icon: 'Users',
+        metaTitle: 'Tafsir Jalalain'
       },
       {
-        title: 'Quraish Shihab',
-        desc: 'Menolak bukan karena tak tahu, tapi karena keras kepala dan gengsi mempertahankan posisi sosial.',
-        icon: 'UserX'
+        title: 'Akar Penolakan',
+        desc: 'Sebagian menolak bukan karena tidak tahu, tapi karena keras kepala demi menjaga kedudukan sosial.',
+        icon: 'Lock',
+        metaTitle: 'M. Quraish Shihab'
       },
       {
-        title: 'Ibnu Katsir',
-        desc: 'Allah Maha Mengetahui siapa yang berhak dapat hidayah dan siapa yang memilih sesat (mufsidin).',
-        icon: 'Lightbulb'
+        title: 'Hidayah & Kesesatan',
+        desc: 'Allah Swt. yang paling mengetahui siapa yang berhak mendapat petunjuk dan siapa yang memilih jalan sesat.',
+        icon: 'Compass',
+        metaTitle: 'Ibnu Katsir'
+      },
+      {
+        title: 'Peringatan & Ancaman',
+        desc: 'Kalimat "Tuhanmu lebih mengetahui" merupakan peringatan keras bagi para perusak dan kaum musyrikin.',
+        icon: 'AlertTriangle',
+        metaTitle: 'Ibnu Asyur'
+      },
+      {
+        title: 'Keadilan Balasan',
+        desc: 'Allah mengetahui setiap kerusakan, kedzaliman, dan sikap melampaui batas, serta akan memberi balasan adil.',
+        icon: 'Scale',
+        metaTitle: 'Al-Maraghi'
+      },
+      {
+        title: 'Keimanan Hati',
+        desc: 'Sesungguhnya iman adalah perbuatan hati yang terdalam, bukan sekadar apa yang tampak secara lahiriah.',
+        icon: 'Heart',
+        metaTitle: 'Al-Sya\'rawi'
+      },
+      {
+        title: 'Prinsip Lepas Tangan',
+        desc: '"Bagiku pekerjaanku, bagimu pekerjaanmu" - Penegasan tanggung jawab amal masing-masing individu di akhirat.',
+        icon: 'ShieldCheck',
+        metaTitle: 'Tanggung Jawab Amal'
       }
     ]
   },
@@ -206,6 +242,7 @@ export const slides: SlideContent[] = [
     section: 'TOLERANSI INTERNAL',
     title: 'Sesama Muslim',
     subtitle: 'Menelusuri Hikmah dalam Perbedaan Furu\'iyah',
+    image: 'https://www.detik.com/sulsel/berita/d-6747643/kisah-sahabat-yang-ditegur-rasulullah-karena-bacaan-salatnya-panjang', // Islamic geometry/Atmospheric mosque
     items: [
       {
         title: 'Teguran Nabi kepada Mu\'adz',
@@ -226,30 +263,70 @@ export const slides: SlideContent[] = [
     ]
   },
 
-  // --- EXTERNAL TOLERANCE (CASE STUDY) ---
+  // --- EXTERNAL TOLERANCE (CONTENT) ---
   {
     id: '7-external',
-    type: 'case-study',
+    type: 'content',
     section: 'TOLERANSI EKSTERNAL',
-    title: 'Antar Umat Beragama',
-    subtitle: 'Hadis Riwayat Al-Bukhari',
-    content: 'Studi Kasus: Suatu hari, jenazah seorang Yahudi dibawa melewati Nabi Muhammad SAW dan para sahabat.',
-    interactionHint: 'Apa respon Nabi saat itu?',
-    image: 'https://images.unsplash.com/photo-1596561026048-ff31df95e927?q=80&w=2000&auto=format&fit=crop', // Ancient city/crowd vibe
-    // The component logic handles the reveal: "Nabi berdiri menghormati. 'Bukankah dia juga manusia?'"
+    title: 'Dasar Teologis',
+    subtitle: 'Q.S. Al-Mumtahanah: 8',
+    content: `لَا يَنْهَاكُمُ اللَّهُ عَنِ الَّذِينَ لَمْ يُقَاتِلُوكُمْ فِي الدِّينِ وَلَمْ يُخْرِجُوكُمْ مِنْ دِيَارِكُمْ أَنْ تَبَرُّوهُمْ وَتُقْسِطُوا إِلَيْهِمْ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ
+
+"Allah tidak melarang kamu berbuat baik dan berlaku adil terhadap orang-orang yang tidak memerangimu dalam urusan agama dan tidak mengusir kamu dari kampung halamanmu. Sesungguhnya Allah mencintai orang-orang yang berlaku adil."
+
+Ayat ini menegaskan bahwa Islam tidak melarang umatnya untuk berbuat baik (al-birr) dan berlaku adil (al-qist) kepada non-muslim, selama mereka tidak memusuhi Islam. Hubungan sosial yang harmonis adalah kunci kedamaian.`,
+    items: [
+      {
+        title: "Prinsip Keadilan",
+        desc: "Berlaku adil adalah perintah Allah kepada siapa saja, termasuk kepada mereka yang berbeda keyakinan."
+      },
+      {
+        title: "Hubungan Sosial",
+        desc: "Boleh menjalin hubungan baik, saling membantu, dan bekerja sama dalam urusan duniawiyah."
+      }
+    ]
   },
 
-  // --- EXTERNAL EXAMPLES (LIST) ---
+  // --- EXTERNAL EXAMPLES (SHOWCASE) ---
   {
     id: '8-external-examples',
-    type: 'list',
+    type: 'showcase',
     section: 'CONTOH NYATA',
     title: 'Teladan Toleransi',
     subtitle: 'Sikap Nabi & Ulama pada Non-Muslim',
-    bullets: [
-      { text: '**Doa Nabi untuk Kabilah Daus**: "Ya Allah berilah petunjuk kepada kabilah Daus dan datangkanlah mereka bersama orang muslim". Nabi mendoakan hidayah, bukan laknat.', icon: 'Heart' },
-      { text: '**Sunan Kudus & Sapi**: Melarang menyembelih sapi untuk menghormati umat Hindu di Kudus. Bentuk penghargaan sosial tanpa mengorbankan akidah.', icon: 'ShieldCheck' },
-      { text: '**Piagam Madinah**: Konstitusi pertama yang menjamin kebebasan beragama dan perlindungan bagi umat Yahudi selama mereka tidak memerangi.', icon: 'Scale' }
+    items: [
+      {
+        title: 'Doa untuk Kabilah Daus',
+        desc: 'Ketika al-Thufail bin \'Amr melaporkan bahwa Kabilah Daus menolak dakwah dan meminta Nabi melaknat mereka, Nabi justru berdoa: "Ya Allah berilah petunjuk kepada kabilah Daus dan datangkanlah mereka bersama orang muslim".',
+        icon: 'Heart', // Icon ignored by component
+        wisdom: 'Dakwah itu merangkul bukan memukul, mendoakan bukan melaknat.',
+        metaTitle: '01',
+        image: DoaDausImg
+      },
+      {
+        title: 'Penghormatan Jenazah',
+        desc: 'Saat jenazah Yahudi lewat, Nabi berdiri menghormati. Sahabat bertanya: "Bukankah itu Yahudi?" Nabi menjawab: "Bukankah dia juga manusia?"',
+        icon: 'UserCheck', // Icon ignored by component
+        wisdom: 'Kemanusiaan mendahului perbedaan keyakinan. Hormati manusia karena dia ciptaan Tuhan.',
+        metaTitle: '02',
+        image: RespectFuneralImg
+      },
+      {
+        title: 'Sunan Kudus & Sapi',
+        desc: 'Sunan Kudus melarang menyembelih sapi di wilayah Kudus untuk menghormati umat Hindu yang mensucikan sapi. Strategi dakwah kultural yang sangat bijak.',
+        icon: 'ShieldCheck', // Icon ignored by component
+        wisdom: 'Menghargai keyakinan orang lain tidak berarti mengorbankan akidah sendiri.',
+        metaTitle: '03',
+        image: SunanKudusImg
+      },
+      {
+        title: 'Piagam Madinah',
+        desc: 'Konstitusi tertulis pertama di dunia yang menjamin kebebasan beragama bagi Yahudi dan Nasrani selama mereka tidak memerangi kaum muslimin.',
+        icon: 'ScrollText', // Icon ignored by component
+        wisdom: 'Negara yang kuat dibangun di atas fondasi keadilan dan perlindungan hak bagi semua warganya.',
+        metaTitle: '04',
+        image: MedinaCharterImg
+      }
     ]
   },
 
@@ -264,6 +341,48 @@ export const slides: SlideContent[] = [
       translation: "\"Barangsiapa membunuh seseorang, bukan karena orang itu membunuh orang lain, atau bukan karena berbuat kerusakan di bumi, maka seakan-akan dia telah membunuh semua manusia. Barangsiapa memelihara kehidupan seorang manusia, maka seakan-akan dia telah memelihara kehidupan semua manusia.\"",
       source: "Q.S. Al-Maidah: 32"
     }
+  },
+
+  // --- TAFSIR AL-MAIDAH: 32 (GRID) ---
+  {
+    id: '9c-tafsir-maidah',
+    type: 'grid',
+    section: 'TAFSIR',
+    title: 'Makna Ayat',
+    subtitle: 'Penjelasan Ulama tentang Q.S. Al-Maidah: 32',
+    image: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=2000&auto=format&fit=crop', // Book/Library context
+    items: [
+      {
+        title: 'Universalitas Hukum',
+        desc: 'Ibnu \'Asyur menjelaskan bahwa syari\'at ini telah ditetapkan sejak masa Bani Isra\'il dan tetap berlaku bagi umat Islam karena mengandung kemaslahatan universal (hifz an-nafs).',
+        icon: 'Globe',
+        metaTitle: 'Ibnu \'Asyur'
+      },
+      {
+        title: 'Konteks Historis',
+        desc: 'Buya Hamka (Tafsir Al-Azhar) menyoroti bahwa aturan ini ditekankan pada Bani Isra\'il karena sejarah mereka yang mudah menumpahkan darah, bahkan membunuh para Nabi.',
+        icon: 'History',
+        metaTitle: 'Buya Hamka'
+      },
+      {
+        title: 'Alasan Pelarangan',
+        desc: 'Al-Maraghi menegaskan bahwa pembunuhan hanya dibenarkan dalam penegakan hukum (qishash) atau perang (jihad). Diluar itu, pembunuhan merusak tatanan kehidupan.',
+        icon: 'ShieldAlert',
+        metaTitle: 'Al-Maraghi'
+      },
+      {
+        title: 'Nilai Satu Nyawa',
+        desc: '"...seakan-akan dia telah memelihara kehidupan semua manusia". Menyelamatkan satu nyawa adalah representasi penghargaan tertinggi terhadap hak asasi manusia.',
+        icon: 'HeartHandshake',
+        metaTitle: 'Prinsip Kemanusiaan'
+      },
+      {
+        title: 'Ancaman Kerusakan',
+        desc: 'Ayat ini menutup dengan peringatan bahwa meskipun rasul telah datang membawa bukti nyata, masih banyak manusia yang "melampaui batas" (israf) dengan berbuat kerusakan.',
+        icon: 'AlertTriangle',
+        metaTitle: 'Peringatan'
+      }
+    ]
   },
 
   // --- NEW: IMAGE OVERLAY SECTION ---
@@ -282,13 +401,38 @@ export const slides: SlideContent[] = [
     type: 'summary',
     section: 'KESIMPULAN',
     title: 'Intisari Bab 6',
-    subtitle: 'Poin-poin Penting untuk Diingat',
-    // Using an image appropriate for summary/closing context
-    image: 'https://images.unsplash.com/photo-1542816417-0983c9c9ad53?q=80&w=2000&auto=format&fit=crop',
+    subtitle: '6 Poin Penting tentang Toleransi',
     bullets: [
-      { text: '**Tasamuh**: Islam agama yang mudah, cinta damai, dan menghargai perbedaan khilafiyah.', icon: 'Heart' },
-      { text: '**Batas Toleransi**: Boleh dalam muamalah/sosial (duniawi), **haram** dalam aqidah/ibadah (lakum diinukum waliyadiin).', icon: 'AlertTriangle' },
-      { text: '**Hifz an-Nafs**: Menjaga jiwa manusia adalah kewajiban mulia, tidak boleh menumpahkan darah tanpa alasan haq.', icon: 'ShieldCheck' }
+      {
+        text: '**Makna Tasamuh**: Islam adalah agama *rahmatan lil alamin* yang mengajarkan kemudahan, cinta damai, dan menghargai perbedaan sebagai sunnatullah.',
+        icon: 'Heart',
+        metaTitle: 'Esensi'
+      },
+      {
+        text: '**Bukti Sejarah**: Rasulullah Saw. mencontohkan toleransi nyata melalui **Piagam Madinah**, yang menjamin hak hidup berdampingan antarumat beragama dengan adil.',
+        icon: 'ScrollText',
+        metaTitle: 'Teladan'
+      },
+      {
+        text: '**Batasan Akidah**: Toleransi berlaku luas dalam urusan dunia (muamalah), namun **tegas** dalam akidah: *"Untukmu agamamu, untukku agamaku"* (Q.S. Al-Kafirun).',
+        icon: 'ShieldCheck',
+        metaTitle: 'Prinsip'
+      },
+      {
+        text: '**Hifz an-Nafs**: Menjaga nyawa adalah kewajiban mutlak. Membunuh satu jiwa tanpa alasan *haq* sama dengan membunuh seluruh manusia (Q.S. Al-Maidah: 32).',
+        icon: 'LifeBuoy',
+        metaTitle: 'Kemanusiaan'
+      },
+      {
+        text: '**Dasar Teologis**: Q.S. Al-Mumtahanah: 8 menegaskan bolehnya berbuat baik dan berlaku adil kepada non-muslim yang tidak memusuhi Islam.',
+        icon: 'BookOpen',
+        metaTitle: 'Dalil'
+      },
+      {
+        text: '**Harmoni Sosial**: Tujuan akhir toleransi adalah terciptanya masyarakat yang rukun, damai, dan saling menghargai tanpa mengorbankan keyakinan masing-masing.',
+        icon: 'Users',
+        metaTitle: 'Tujuan'
+      }
     ]
   },
 
