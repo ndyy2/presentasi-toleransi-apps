@@ -57,7 +57,7 @@ export const slides: SlideContent[] = [
   {
     id: '1-hero',
     type: 'hero',
-    section: 'BAB 6',
+    section: 'BAB 6 - PAI XI RPL-1',
     title: 'TOLERANSI',
     subtitle: 'Membina Kedamaian & Harmoni',
     content: 'Pendidikan Agama Islam - Bab 6',
@@ -70,7 +70,7 @@ export const slides: SlideContent[] = [
     id: '1a-team',
     type: 'team-members',
     section: 'KELOMPOK',
-    title: 'Anggota Kelompok',
+    title: 'Anggota Kelompok-1',
     subtitle: 'Tim Penyusun Presentasi',
     items: [
       { title: 'Muh. Andy Pradana', nickname: 'Andy', desc: 'NIM: ...', icon: 'User' },
