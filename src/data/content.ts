@@ -73,10 +73,10 @@ export const slides: SlideContent[] = [
     title: 'Anggota Kelompok-1',
     subtitle: 'Tim Penyusun Presentasi',
     items: [
-      { title: 'Muh. Andy Pradana', nickname: 'Andy', desc: 'NIM: ...', icon: 'User' },
-      { title: 'Muh. Andy Pradana', nickname: 'Andy', desc: 'NIM: ...', icon: 'User' },
-      { title: 'Muh. Andy Pradana', nickname: 'Andy', desc: 'NIM: ...', icon: 'User' },
-      { title: 'Muh. Andy Pradana', nickname: 'Andy', desc: 'NIM: ...', icon: 'User' },
+      { title: 'Syifa Aulia Maharani', nickname: 'Syifa', desc: '', icon: 'User' },
+      { title: 'Diva Shidqia Azahra', nickname: 'Diva', desc: '', icon: 'User' },
+      { title: 'Muh. Andy Pradana', nickname: 'Andy', desc: '', icon: 'User' },
+      { title: 'Andira', nickname: 'Andira', desc: '', icon: 'User' },
     ]
   },
 

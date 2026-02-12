@@ -37,10 +37,10 @@ export const DownloadSection = ({ data }: { data: SlideContent }) => {
                 >
                     {/* PPT Button */}
                     <DownloadCard
-                        href="/downloads/materi.pptx"
+                        href="/downloads/Toleransi.pdf"
                         icon={<FileText className="w-6 h-6" />}
                         title="Presentation Slides"
-                        format=".pptx"
+                        format=".pdf"
                         delay={0}
                     />
 
